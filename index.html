@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Viewer App</title>
+</head>
+<body>
+    <h1>Video Viewer App</h1>
+    <button id="select-directory">Select Directory</button>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        document.getElementById('select-directory').addEventListener('click', () => {
+            ipcRenderer.send('select-directory');
+        });
+    </script>
+</body>
+</html>

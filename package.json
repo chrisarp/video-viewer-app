@@ -1,0 +1,12 @@
+{
+  "name": "video-viewer-app",
+  "version": "1.0.0",
+  "description": "A video viewer application that allows users to select a directory and play MP4 videos with a single playback controller.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^25.0.0"
+  }
+}
