@@ -31,9 +31,31 @@ video-viewer-app
 
 ## Installation
 
+To run the application, you will need to have Node.js and npm installed on your machine. Follow the instructions below to install the required dependencies:
+1. Install `nvm` (Node Version Manager) by following the instructions [here](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating):
+   ```  
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+   ```
+2. Verify the installation of nvm by following the instructions [here](https://github.com/nvm-sh/nvm?tab=readme-ov-file#verify-installation):
+   ```
+   command -v nvm
+   ```
+   which should output `nvm` if the installation was successful.
+3. Install the required Node.js and npm by following the instructions [here](https://github.com/nvm-sh/nvm?tab=readme-ov-file#usage):
+   ```   
+   nvm install node # "node" is an alias for the latest version
+   ```
+4. [Verify the installation of Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#checking-your-version-of-npm-and-nodejs) by running:
+   ```
+   node -v
+   npm -v
+   ```
+   which should output the installed versions of Node.js and npm.
+   
+The application can now be installed by following the instructions below:
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/chrisarp/video-viewer-app
    ```
 2. Navigate to the project directory:
    ```
