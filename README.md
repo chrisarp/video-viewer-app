@@ -9,6 +9,15 @@ This project is a video viewer application that allows users to select a directo
 - Resize videos to fit the window.
 - Single playback controller to play, pause, and sync playback across all videos.
 
+## Keyboard Shortcuts
+
+The application supports the following keyboard shortcuts for easier control:
+
+- **Space**: Play/Pause all videos.
+- **L**: Toggle loop for all videos.
+- **Arrow Up/Down**: Increase/Decrease playback speed.
+- **Arrow Left/Right**: Move backward/forward by one frame.
+
 ## Project Structure
 
 ```
@@ -28,6 +37,15 @@ video-viewer-app
 ├── tsconfig.json                  # TypeScript configuration file
 └── README.md                      # Project documentation
 ```
+
+## Usage
+
+1. Start the application:
+   ```
+   npm start
+   ```
+2. Use the directory selector to choose a folder containing MP4 videos.
+3. Control playback using the provided playback controller.
 
 ## Installation
 
@@ -65,15 +83,6 @@ The application can now be installed by following the instructions below:
    ```
    npm install
    ```
-
-## Usage
-
-1. Start the application:
-   ```
-   npm start
-   ```
-2. Use the directory selector to choose a folder containing MP4 videos.
-3. Control playback using the provided playback controller.
 
 ## Contributing
 
