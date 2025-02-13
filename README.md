@@ -38,15 +38,6 @@ video-viewer-app
 └── README.md                      # Project documentation
 ```
 
-## Usage
-
-1. Start the application:
-   ```
-   npm start
-   ```
-2. Use the directory selector to choose a folder containing MP4 videos.
-3. Control playback using the provided playback controller.
-
 ## Installation
 
 To run the application, you will need to have Node.js and npm installed on your machine. Follow the instructions below to install the required dependencies:
@@ -83,6 +74,15 @@ The application can now be installed by following the instructions below:
    ```
    npm install
    ```
+## Usage
+
+1. Start the application:
+   ```
+   npm start
+   ```
+2. Use the directory selector to choose a folder containing MP4 videos.
+3. Control playback using the provided playback controller.
+
 
 ## Contributing
 
