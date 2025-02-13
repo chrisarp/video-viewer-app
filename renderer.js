@@ -38,11 +38,19 @@ ipcRenderer.on('load-videos', (event, videoPaths) => {
         });
     });
 
+    const updateSpeedDisplay = () => {
+        const speedDisplay = document.getElementById('speed-display');
+        if (speedDisplay) {
+            speedDisplay.textContent = `Speed: ${videos[0].playbackRate.toFixed(1)}x`;
+        }
+    };
+
     playbackSpeedSelect.addEventListener('change', () => {
         const speed = parseFloat(playbackSpeedSelect.value);
         videos.forEach(video => {
             video.playbackRate = speed;
         });
+        updateSpeedDisplay();
     });
 
     const updateSlider = () => {
@@ -71,6 +79,43 @@ ipcRenderer.on('load-videos', (event, videoPaths) => {
         if (event.code === 'Space') {
             event.preventDefault();
             playPauseButton.click();
+        } else if (event.key === 'l' || event.key === 'L') {
+            const newLoopState = !videos[0].loop;
+            videos.forEach(video => {
+                video.loop = newLoopState;
+            });
+            loopAllCheckbox.checked = newLoopState;
+            console.log(`Looping is now ${newLoopState ? 'enabled' : 'disabled'}`);
+        } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+            const options = Array.from(playbackSpeedSelect.options);
+            const currentIndex = options.findIndex(option => option.value == playbackSpeedSelect.value);
+            let newIndex;
+            if (event.key === 'ArrowUp') {
+                newIndex = Math.min(currentIndex + 1, options.length - 1);
+            } else {
+                newIndex = Math.max(currentIndex - 1, 0);
+            }
+            playbackSpeedSelect.selectedIndex = newIndex;
+            const newSpeed = parseFloat(playbackSpeedSelect.value);
+            videos.forEach(video => {
+                video.playbackRate = newSpeed;
+            });
+            updateSpeedDisplay();
+            console.log(`Playback speed changed to ${newSpeed}`);
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            videos.forEach(video => {
+                video.pause();
+                const frameTime = 1 / 30; // Assuming 30 FPS
+                if (event.key === 'ArrowLeft') {
+                    video.currentTime = Math.max(video.currentTime - frameTime, 0);
+                } else {
+                    video.currentTime = Math.min(video.currentTime + frameTime, video.duration);
+                }
+            });
+            console.log(`Moved ${event.key === 'ArrowLeft' ? 'backward' : 'forward'} by one frame`);
         }
     });
+
+    // Initial call to set the speed display
+    updateSpeedDisplay();
 });
