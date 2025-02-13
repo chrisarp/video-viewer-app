@@ -29,6 +29,12 @@ class VideoPlayer extends Component<VideoPlayerProps, VideoPlayerState> {
         this.setState({ isPlaying: false });
     };
 
+    setPlaybackRate = (rate: number) => {
+        if (this.videoRef.current) {
+            this.videoRef.current.playbackRate = rate;
+        }
+    };
+
     resizeVideo = () => {
         const videoElement = this.videoRef.current;
         if (videoElement) {

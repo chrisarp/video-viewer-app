@@ -40,7 +40,7 @@
             bottom: 0;
             width: 100%;
         }
-        button, input[type="range"], label {
+        button, input[type="range"], label, select {
             margin: 0 10px;
             padding: 10px;
             font-size: 16px;
@@ -50,7 +50,7 @@
             color: #ffffff;
             cursor: pointer;
         }
-        button:hover, input[type="range"]:hover, label:hover {
+        button:hover, input[type="range"]:hover, label:hover, select:hover {
             background-color: #555555;
         }
         input[type="range"] {
@@ -59,15 +59,29 @@
         input[type="checkbox"] {
             margin-left: 10px;
         }
+        .play-pause-icon {
+            width: 20px;
+            height: 20px;
+        }
     </style>
 </head>
 <body>
     <div id="video-container"></div>
     <div id="controls">
-        <button id="play-all">Play All</button>
-        <button id="pause-all">Pause All</button>
+        <button id="play-pause">Play/Pause</button>
         <input type="range" id="playback-slider" min="0" max="100" value="0">
         <label for="loop-all">Loop All<input type="checkbox" id="loop-all"></label>
+        <select id="playback-speed">
+            <option value="0.1">0.1X</option>
+            <option value="0.25">0.25X</option>
+            <option value="0.5">0.5X</option>
+            <option value="0.75">0.75X</option>
+            <option value="1" selected>1X</option>
+            <option value="1.25">1.25X</option>
+            <option value="1.5">1.5X</option>
+            <option value="1.75">1.75X</option>
+            <option value="2">2X</option>
+        </select>
     </div>
     <script src="renderer.js"></script>
 </body>
