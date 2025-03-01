@@ -6,6 +6,7 @@ ipcRenderer.on('load-videos', (event, videoPaths) => {
         const videoElement = document.createElement('video');
         videoElement.src = videoPath;
         videoElement.controls = true;
+        videoElement.title = videoPath; // Add this line to set the title attribute
         videoContainer.appendChild(videoElement);
         return videoElement;
     });
