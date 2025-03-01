@@ -26,6 +26,8 @@ function createVideoWindow(videoPaths) {
     videoWindow = new BrowserWindow({
         width: 1200,
         height: 800,
+        minWidth: 600,
+        minHeight: 400,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,

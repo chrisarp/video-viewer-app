@@ -65,9 +65,11 @@ ipcRenderer.on('load-videos', (event, videoPaths) => {
 
     const resizeVideos = () => {
         const containerWidth = videoContainer.clientWidth;
-        const videoWidth = containerWidth / Math.floor(containerWidth / 200);
+        const gapSize = 5;
+        // const videoWidth = containerWidth / Math.floor(containerWidth / 200);
+        const videoWidth = (containerWidth - gapSize) / Math.floor(containerWidth / (200 + gapSize));
         videos.forEach(video => {
-            video.style.width = `${videoWidth - 10}px`;
+            video.style.width = `${videoWidth - gapSize}px`;
             video.style.height = 'auto';
         });
     };
